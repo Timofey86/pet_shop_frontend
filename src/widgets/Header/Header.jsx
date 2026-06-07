@@ -16,7 +16,7 @@ const Header = () => {
         isActive ? `${cls.NavLink} ${cls.active}` : cls.NavLink;
     return (
 
-        <div className={cls.Header}>
+        <header className={cls.Header}>
             <Container>
                 <div className={cls.Inner}>
                     <NavLink to={getRouteMain()} className={cls.Logo}>
@@ -46,7 +46,7 @@ const Header = () => {
                     </NavLink>
                 </div>
             </Container>
-        </div>
+        </header>
 
     );
 };

@@ -1,5 +1,6 @@
 import AppRouter from "./providers/router/AppRouter.jsx";
 import Header from "../widgets/Header/Header.jsx";
+import Footer from "../widgets/Footer/Footer.jsx";
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
     <>
         <Header/>
         <AppRouter/>
+        <Footer/>
 
     </>
   )
