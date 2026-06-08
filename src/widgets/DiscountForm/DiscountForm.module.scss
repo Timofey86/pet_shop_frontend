@@ -1,0 +1,73 @@
+.DiscountForm {
+  margin: 0 auto 80px auto;
+  padding: 0 5px 0 40px;
+  max-width: 1440px;
+}
+
+.container {
+  background: linear-gradient(261.47deg, #2451C6 32.63%, #0D50FF 98.96%);
+  border-radius: 12px;
+
+  h2 {
+    margin-bottom: 24px;
+    padding-top: 32px;
+    color: #ffffff;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 110%;
+    text-align: center;
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 516px;
+  align-items: end;
+  gap: 32px;
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+}
+
+.form {
+  padding-bottom: 32px;
+  padding-right: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  input {
+    height: 58px;
+    padding: 0 32px;
+    border: 1px solid #ffffff;
+    border-radius: 6px;
+    background: transparent;
+    color: #ffffff;
+    font-size: 20px;
+
+    &::placeholder {
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 130%;
+    }
+  }
+
+  span {
+    color: #ffffff;
+    font-size: 14px;
+  }
+
+  button {
+    height: 58px;
+    border: none;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #282828;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
