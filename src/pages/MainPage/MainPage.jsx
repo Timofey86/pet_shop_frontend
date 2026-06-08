@@ -41,7 +41,7 @@ const MainPage = () => {
 
             {isLoading && <PageLoader />}
 
-            {error && <p>{error}</p>}
+            {error && <p className={cls.error}>{error}</p>}
 
             {!isLoading && !error && (
                 <CategoriesPreview categories={categories} />
