@@ -1,6 +1,6 @@
 import cls from './ProductFilters.module.scss'
 
-const ProductFilters = ({filters, setFilters}) => {
+const ProductFilters = ({filters, setFilters, showDiscounted = true}) => {
     const onChange = (event) => {
         const {name, value, type, checked} = event.target
 
@@ -32,15 +32,18 @@ const ProductFilters = ({filters, setFilters}) => {
 
             </div>
 
-            <label className={cls.discount}>
-                <span>Discounted items</span>
-                <input
-                    type="checkbox"
-                    name="discountedOnly"
-                    checked={filters.discountedOnly}
-                    onChange={onChange}
-                />
-            </label>
+            {showDiscounted && (
+                <label className={cls.discount}>
+                    <span>Discounted items</span>
+
+                    <input
+                        type="checkbox"
+                        name="discountedOnly"
+                        checked={filters.discountedOnly}
+                        onChange={onChange}
+                    />
+                </label>
+            )}
 
             <div className={cls.sort}>
                 <span>Sorted</span>

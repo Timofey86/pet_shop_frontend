@@ -11,6 +11,7 @@ import SectionError from "../../shared/ui/SectionError/SectionError.jsx";
 import ProductFilters from "../../features/product/ui/ProductFilters/ProductFilters.jsx";
 import ProductList from "../../entities/product/ui/ProductList/ProductList.jsx";
 import Breadcrumbs from "../../shared/ui/Breadcrumbs/Breadcrumbs.jsx";
+import {filterProducts} from "../../features/product/model/filterProducts.js";
 
 const CategoryProductsPage = () => {
     const {id} = useParams();
@@ -28,47 +29,11 @@ const CategoryProductsPage = () => {
     const category = categories.find((category) => category.id === Number(id));
 
     const filteredProducts = useMemo(() => {
-        let result = products.filter((product) => product.categoryId === Number(id))
+        const categoryProducts = products.filter(
+            (product) => product.categoryId === Number(id)
+        )
 
-        if (filters.minPrice) {
-            result = result.filter((product) => product.price >= Number(filters.minPrice))
-        }
-
-        if (filters.maxPrice) {
-            result = result.filter(
-                (product) => product.price <= Number(filters.maxPrice)
-            )
-        }
-
-        if (filters.discountedOnly) {
-            result = result.filter((product) => product.discont_price !== null)
-        }
-
-        if (filters.sort === 'newest') {
-            result = [...result].sort(
-                (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-            )
-        }
-
-        if (filters.sort === 'price-high-low') {
-            result = [...result].sort((a, b) => {
-                const priceA = a.discont_price ?? a.price
-                const priceB = b.discont_price ?? b.price
-
-                return priceB - priceA
-            })
-        }
-
-        if (filters.sort === 'price-low-low') {
-            result = [...result].sort((a, b) => {
-                const priceA = a.discont_price ?? a.price
-                const priceB = b.discont_price ?? b.price
-
-                return priceA - priceB
-            })
-        }
-
-        return result;
+        return filterProducts(categoryProducts, filters)
     }, [products, id, filters])
 
     if (status === 'loading') {
