@@ -21,9 +21,9 @@ export const AppRouter = {
 export const RouterPath = {
   [AppRouter.MAIN]: '/',
   [AppRouter.CATEGORIES]: '/categories',
-  [AppRouter.CATEGORY_PRODUCTS]: '/category/:id',
+  [AppRouter.CATEGORY_PRODUCTS]: '/categories/:id',
   [AppRouter.PRODUCTS]: '/products',
-  [AppRouter.PRODUCT]: '/product/:id',
+  [AppRouter.PRODUCT]: '/products/:id',
   [AppRouter.SALES]: '/sales',
   [AppRouter.CART]: '/cart',
   [AppRouter.NOT_FOUND]: '*',

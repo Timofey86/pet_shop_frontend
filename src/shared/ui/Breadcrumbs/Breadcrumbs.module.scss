@@ -1,0 +1,44 @@
+.Breadcrumbs {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.link,
+.current {
+  padding: 8px 16px;
+
+  border: 1px solid #dddddd;
+  border-radius: 6px;
+
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.link {
+  color: #8b8b8b;
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #282828;
+  }
+}
+
+.current {
+  color: #282828;
+}
+
+.line {
+  width: 16px;
+  height: 1px;
+  margin: 0 ;
+  background: #dddddd;
+}

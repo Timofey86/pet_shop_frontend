@@ -1,0 +1,58 @@
+.ProductFilters {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.price,
+.discount,
+.sort {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  span {
+    color: #282828;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 130%;
+  }
+}
+
+.price {
+  input {
+    width: 112px;
+    height: 36px;
+    padding: 8px 16px;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    color: #282828;
+    font-size: 16px;
+
+    &::placeholder {
+      color: #8b8b8b;
+    }
+  }
+}
+
+.discount {
+  input {
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+  }
+}
+
+.sort {
+  select {
+    padding: 8px 8px 8px 16px;
+    height: 40px;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    background: transparent;
+    color: #282828;
+    font-size: 16px;
+    cursor: pointer;
+  }
+}
