@@ -23,9 +23,38 @@ export const cartSlice = createSlice({
                     count
                 });
             }
+        },
+        increaseCartItem: (state, action) => {
+            const item = state.items.find(
+                (item) => item.id === action.payload
+            )
+            if (item) {
+                item.count += 1;
+            }
+        },
+        decreaseCartItem: (state, action) => {
+            const item = state.items.find(
+                (item) => item.id === action.payload
+            )
+
+            if (item && item.count > 1) {
+                item.count -= 1;
+            }
+        },
+        removeCartItem: (state, action) => {
+            state.items = state.items.filter((item) => item.id !== action.payload)
+        },
+        clearCart: (state) => {
+            state.items = []
         }
     }
 })
 
-export const {addProductToCart} = cartSlice.actions;
+export const {
+    addProductToCart,
+    increaseCartItem,
+    decreaseCartItem,
+    removeCartItem,
+    clearCart,
+} = cartSlice.actions;
 export const cartReducer = cartSlice.reducer;
