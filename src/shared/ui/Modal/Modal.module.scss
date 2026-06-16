@@ -1,0 +1,40 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background: rgba(40, 40, 40, 0.4);
+}
+
+.Modal {
+  position: relative;
+  width: 548px;
+  padding: 32px;
+  border-radius: 12px;
+  background: #0d50ff;
+  color: #ffffff;
+}
+
+.close {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  img {
+    width: 22px;
+    height: 22px;
+    display: block;
+  }
+}
