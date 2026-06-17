@@ -2,11 +2,21 @@ import cls from './ProductCard.module.scss'
 import {Link} from "react-router-dom";
 import {getRouteProduct} from "../../../../shared/config/router/routes.js";
 import {API_URL} from "../../../../shared/config/api.js";
+import {useDispatch} from "react-redux";
+import {addProductToCart} from "../../../cart/model/slice/cartSlice.js";
 
 const ProductCard = ({product}) => {
+    const dispatch = useDispatch();
     const discount = Math.round((1 - product.discont_price / product.price) * 100)
     const hasDiscount = product.discont_price !== null;
     const currentPrice = hasDiscount ? product.discont_price : product.price;
+
+    const onAddToCart = (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        dispatch(addProductToCart({ product, count: 1 }));
+    };
+
     return (
         <Link
             to={getRouteProduct(product.id)}
@@ -17,6 +27,14 @@ const ProductCard = ({product}) => {
                 {hasDiscount && (
                     <span className={cls.discount}>-{discount}%</span>
                 )}
+
+                <button
+                    type="button"
+                    className={cls.addButton}
+                    onClick={onAddToCart}
+                >
+                    Add to cart
+                </button>
             </div>
 
             <div className={cls.info}>
