@@ -1,6 +1,7 @@
 import cls from './Header.module.scss'
 import logoImg from '../../shared/assets/logo.png'
 import basketEmptyImg from '../../shared/assets/basket_empty.svg'
+import basketFullImg from '../../shared/assets/basket_full.svg'
 import {NavLink} from "react-router-dom";
 import {
     getRouteCart,
@@ -10,9 +11,12 @@ import {
     getRouteSales
 } from "../../shared/config/router/routes.js";
 import Container from "../../shared/ui/Container/Container.jsx";
+import {cartTotalCountSelector} from "../../entities/cart/model/selectors/cartSelectors.js";
+import {useSelector} from "react-redux";
 
 const Header = () => {
-    const getNavLinkClass = ({ isActive }) =>
+    const cartCount = useSelector(cartTotalCountSelector);
+    const getNavLinkClass = ({isActive}) =>
         isActive ? `${cls.NavLink} ${cls.active}` : cls.NavLink;
     return (
 
@@ -20,7 +24,7 @@ const Header = () => {
             <Container>
                 <div className={cls.Inner}>
                     <NavLink to={getRouteMain()} className={cls.Logo}>
-                        <img src={logoImg} alt="logo" />
+                        <img src={logoImg} alt="logo"/>
                     </NavLink>
 
                     <nav className={cls.NavMenu}>
@@ -42,7 +46,16 @@ const Header = () => {
                     </nav>
 
                     <NavLink to={getRouteCart()} className={cls.Cart}>
-                        <img src={basketEmptyImg} alt="cart" />
+                        <img
+                            src={cartCount > 0 ? basketFullImg : basketEmptyImg}
+                            alt="cart"
+                        />
+
+                        {cartCount > 0 && (
+                            <span className={cls.count}>
+                                    {cartCount}
+                                </span>
+                        )}
                     </NavLink>
                 </div>
             </Container>
