@@ -19,3 +19,31 @@
     line-height: 130%;
   }
 }
+
+@media (max-width: 1020px) {
+  .CategoryCard {
+    img {
+      height: 300px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .CategoryCard {
+    img {
+      height: 260px;
+    }
+
+    h3 {
+      font-size: 18px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .CategoryCard {
+    img {
+      height: 220px;
+    }
+  }
+}

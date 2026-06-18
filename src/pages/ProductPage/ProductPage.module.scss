@@ -1,3 +1,15 @@
 .ProductPage {
   margin-top: 40px;
 }
+
+@media (max-width: 768px) {
+  .ProductPage {
+    margin-top: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ProductPage {
+    margin-top: 24px;
+  }
+}

@@ -2,8 +2,12 @@ import cls from './DiscountForm.module.scss'
 import petsImg from '../../shared/assets/discountImage.png'
 import {useForm} from "react-hook-form";
 import {sendSaleRequest} from "../../shared/api/saleApi.js";
+import {useState} from "react";
+import Modal from "../../shared/ui/Modal/Modal.jsx";
 
 const DiscountForm = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [requestError, setRequestError] = useState('');
     const {
         register,
         handleSubmit,
@@ -19,16 +23,12 @@ const DiscountForm = () => {
 
     const onSubmit = async (data) => {
         try {
-            const response = await sendSaleRequest(data);
-            console.log('BACKEND RESPONSE:', response);
+            setRequestError('');
+            await sendSaleRequest(data);
             reset();
+            setIsModalOpen(true);
         } catch (error) {
-            console.log('ERROR:', error);
-
-            if (error.response) {
-                console.log('STATUS:', error.response.status);
-                console.log('DATA:', error.response.data);
-            }
+            setRequestError(error.message || 'Something went wrong. Please try again.');
         }
     };
     return (
@@ -84,9 +84,19 @@ const DiscountForm = () => {
                         >
                             {isSubmitting ? 'Sending...' : 'Get a discount'}
                         </button>
+                        {requestError && (
+                            <p className={cls.error}>{requestError}</p>
+                        )}
                     </form>
                 </div>
             </div>
+            <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+                <div className={cls.modalContent}>
+                    <h2>Congratulations!</h2>
+                    <p>Your discount request has been successfully sent.</p>
+                    <p>We will contact you shortly.</p>
+                </div>
+            </Modal>
         </section>
     );
 };

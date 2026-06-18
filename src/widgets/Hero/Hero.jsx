@@ -9,7 +9,7 @@ const Hero = () => {
         <img src={heroImg} alt="Pets products discounts" />
 
         <div className={cls.content}>
-            <h1>Amazing Discounts on&nbsp; Pets Products!</h1>
+            <h1>Amazing Discounts on Pets Products!</h1>
 
             <Link to={getRouteSales()} className={cls.button}>
                 Check out

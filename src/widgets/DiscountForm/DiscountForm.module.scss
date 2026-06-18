@@ -39,8 +39,7 @@
   gap: 16px;
 
   input {
-    height: 58px;
-    padding: 0 32px;
+    padding: 16px 32px;
     border: 1px solid #ffffff;
     border-radius: 6px;
     background: transparent;
@@ -61,7 +60,7 @@
   }
 
   button {
-    height: 58px;
+    padding: 16px 32px;
     border: none;
     border-radius: 6px;
     background: #ffffff;
@@ -69,5 +68,122 @@
     font-size: 20px;
     font-weight: 600;
     cursor: pointer;
+  }
+}
+
+.error {
+  color: #ffb3b3;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.modalContent {
+  padding-right: 40px;
+
+  h2 {
+    margin-bottom: 24px;
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 110%;
+  }
+
+  p {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 130%;
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+}
+
+@media (max-width: 1020px) {
+  .DiscountForm {
+    margin-top: 60px;
+    padding: 0 32px;
+  }
+
+  .container {
+    h2 {
+      font-size: 48px;
+    }
+  }
+
+  .content {
+    grid-template-columns: 1fr 420px;
+    gap: 24px;
+  }
+
+  .form {
+    padding-right: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .DiscountForm {
+    margin-top: 48px;
+    padding: 0 24px;
+  }
+
+  .container {
+    h2 {
+      padding: 24px 24px 0;
+      font-size: 40px;
+    }
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+  }
+
+  .content {
+    img {
+      max-width: 70%;
+      margin: 0 auto;
+      order: 2;
+    }
+  }
+
+  .form {
+    order: 1;
+    padding: 0 24px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .DiscountForm {
+    margin-top: 40px;
+    padding: 0 20px;
+  }
+
+  .container {
+    h2 {
+      font-size: 32px;
+    }
+  }
+
+  .content {
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .form {
+    input,
+    button {
+      height: 52px;
+      font-size: 16px;
+    }
+
+    input {
+      padding: 0 20px;
+
+      &::placeholder {
+        font-size: 16px;
+      }
+    }
   }
 }

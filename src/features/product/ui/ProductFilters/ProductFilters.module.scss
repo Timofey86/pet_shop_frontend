@@ -56,3 +56,70 @@
     cursor: pointer;
   }
 }
+
+@media (max-width: 1020px) {
+  .ProductFilters {
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ProductFilters {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .price,
+  .discount,
+  .sort {
+    width: 100%;
+  }
+
+  .sort {
+    select {
+      width: 100%;
+      max-width: 240px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .ProductFilters {
+    margin-bottom: 28px;
+  }
+
+  .price {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+
+    span {
+      grid-column: 1 / -1;
+      font-size: 18px;
+    }
+
+    input {
+      width: 100%;
+    }
+  }
+
+  .discount,
+  .sort {
+    span {
+      font-size: 18px;
+    }
+  }
+
+  .sort {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+
+    select {
+      max-width: none;
+    }
+  }
+}

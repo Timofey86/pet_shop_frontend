@@ -70,3 +70,88 @@
     display: block;
   }
 }
+
+@media (max-width: 1020px) {
+  .Footer {
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+
+  .title {
+    font-size: 48px;
+    margin-bottom: 32px;
+  }
+
+  .info {
+    gap: 24px;
+  }
+
+  .card {
+    padding: 24px;
+
+    p {
+      font-size: 28px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .Footer {
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
+
+  .title {
+    font-size: 40px;
+    margin-bottom: 28px;
+  }
+
+  .info {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card {
+    p {
+      font-size: 24px;
+    }
+  }
+
+  .map {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Footer {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .card {
+    padding: 20px;
+
+    span {
+      font-size: 16px;
+    }
+
+    p {
+      font-size: 20px;
+    }
+  }
+
+  .socials {
+    a {
+      width: 36px;
+      height: 36px;
+    }
+  }
+
+  .map {
+    height: 250px;
+  }
+}

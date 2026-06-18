@@ -38,3 +38,36 @@
     display: block;
   }
 }
+
+@media (max-width: 768px) {
+  .overlay {
+    padding: 20px;
+  }
+
+  .Modal {
+    width: 100%;
+    max-width: 548px;
+  }
+}
+
+@media (max-width: 480px) {
+  .overlay {
+    padding: 16px;
+  }
+
+  .Modal {
+    padding: 24px;
+  }
+
+  .close {
+    top: 20px;
+    right: 20px;
+    width: 36px;
+    height: 36px;
+
+    img {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}

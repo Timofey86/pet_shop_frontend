@@ -1,6 +1,7 @@
 .Hero {
   position: relative;
   overflow: hidden;
+  height: 600px;
   border-radius: 0 0 12px 12px;
   max-width: 1440px;
   margin: 0 auto;
@@ -40,4 +41,67 @@
   border-radius: 8px;
   background: #0d50ff;
   text-decoration: none;
+}
+
+@media (max-width: 1020px) {
+  .Hero {
+    height: 480px;
+  }
+
+  .content {
+    top: 60px;
+    left: 32px;
+    max-width: 760px;
+
+    h1 {
+      font-size: 68px;
+      margin-bottom: 32px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .Hero {
+    height: 420px;
+  }
+
+  .content {
+    top: 48px;
+    left: 24px;
+    right: 24px;
+    max-width: none;
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 28px;
+    }
+  }
+
+  .button {
+    padding: 14px 44px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Hero {
+    height: 360px;
+  }
+
+  .content {
+    top: 36px;
+    left: 20px;
+    right: 20px;
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 24px;
+    }
+  }
+
+  .button {
+    width: 100%;
+    padding: 14px 24px;
+    font-size: 16px;
+  }
 }

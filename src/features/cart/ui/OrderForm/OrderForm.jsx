@@ -30,7 +30,6 @@ const OrderForm = ({ items, onSuccess }) => {
         const result = await dispatch(sendOrderThunk(orderData))
 
         if (sendOrderThunk.fulfilled.match(result)) {
-            console.log(result.payload);
             reset()
             dispatch(clearCart())
             onSuccess()
