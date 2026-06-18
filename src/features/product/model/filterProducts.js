@@ -1,5 +1,5 @@
 const getProductPrice = (product) => {
-    return product.dicont_price ?? product.price
+    return product.discont_price ?? product.price
 }
 
 export const filterProducts = (products, filters) => {
@@ -22,22 +22,16 @@ export const filterProducts = (products, filters) => {
     }
 
     if (filters.sort === 'newest') {
-        result.sort((a,b) => {
-            return new Date(b.createdAt) - new Date(a.createdAt)
-        })
+        result.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
     }
 
     if (filters.sort === 'price-high-low') {
-        result.sort((a,b) => {
-            return getProductPrice(b) - getProductPrice(a)
-        })
+        result.sort((a, b) => getProductPrice(b) - getProductPrice(a))
     }
 
-    if (filters.sort === 'price-low-low') {
-        result.sort((a,b) => {
-            return getProductPrice(a) - getProductPrice(b)
-        })
+    if (filters.sort === 'price-low-high') {
+        result.sort((a, b) => getProductPrice(a) - getProductPrice(b))
     }
 
-    return result
-}
+    return result;
+};
