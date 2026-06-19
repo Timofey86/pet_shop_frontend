@@ -10,6 +10,7 @@ import SectionError from "../../shared/ui/SectionError/SectionError.jsx";
 import ProductList from "../../entities/product/ui/ProductList/ProductList.jsx";
 import ProductFilters from "../../features/product/ui/ProductFilters/ProductFilters.jsx";
 import {filterProducts} from "../../features/product/model/filterProducts.js";
+import {useDebounce} from "../../shared/hooks/useDebounce.js";
 
 const SalesPage = () => {
     const { items, status, error } = useSelector(productSelectors);
@@ -17,15 +18,21 @@ const SalesPage = () => {
         minPrice: '',
         maxPrice: '',
         sort: 'default',
+        search: '',
     });
+
+    const debouncedSearch = useDebounce(filters.search, 500);
 
     const discountedProducts = useMemo(() => {
         const saleProducts = items.filter(
             (product) => product.discont_price !== null
         )
 
-        return filterProducts(saleProducts, filters)
-    }, [items, filters]);
+        return filterProducts(saleProducts, {
+            ...filters,
+            search: debouncedSearch,
+        });
+    }, [items, filters, debouncedSearch]);
   return (
     <main className={cls.SalesPage}>
       <Container>

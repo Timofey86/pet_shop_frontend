@@ -55,6 +55,18 @@ const ProductFilters = ({filters, setFilters, showDiscounted = true}) => {
                     <option value="price-low-high">price: low-high</option>
                 </select>
             </div>
+
+            <div className={cls.search}>
+                <span>Search</span>
+
+                <input
+                    type="text"
+                    name="search"
+                    placeholder="Product name"
+                    value={filters.search}
+                    onChange={onChange}
+                />
+            </div>
         </div>
     );
 };

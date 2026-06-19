@@ -12,6 +12,7 @@ import ProductFilters from "../../features/product/ui/ProductFilters/ProductFilt
 import ProductList from "../../entities/product/ui/ProductList/ProductList.jsx";
 import Breadcrumbs from "../../shared/ui/Breadcrumbs/Breadcrumbs.jsx";
 import {filterProducts} from "../../features/product/model/filterProducts.js";
+import {useDebounce} from "../../shared/hooks/useDebounce.js";
 
 const CategoryProductsPage = () => {
     const {id} = useParams();
@@ -24,7 +25,10 @@ const CategoryProductsPage = () => {
         maxPrice: '',
         discountedOnly: false,
         sort: 'default',
+        search: '',
     });
+
+    const debouncedSearch = useDebounce(filters.search, 500);
 
     const category = categories.find((category) => category.id === Number(id));
 
@@ -33,8 +37,11 @@ const CategoryProductsPage = () => {
             (product) => product.categoryId === Number(id)
         )
 
-        return filterProducts(categoryProducts, filters)
-    }, [products, id, filters])
+        return filterProducts(categoryProducts, {
+            ...filters,
+            search: debouncedSearch,
+        });
+    }, [products, id, filters, debouncedSearch])
 
     if (status === 'loading') {
         return <PageLoader/>;

@@ -5,6 +5,14 @@ const getProductPrice = (product) => {
 export const filterProducts = (products, filters) => {
     let result = [...products]
 
+    if (filters.search?.trim()) {
+        const query = filters.search.trim().toLowerCase();
+
+        result = result.filter((product) =>
+            product.title.toLowerCase().startsWith(query)
+        );
+    }
+
     if (filters.minPrice) {
         result = result.filter((product) => {
             return getProductPrice(product) >= Number(filters.minPrice)
