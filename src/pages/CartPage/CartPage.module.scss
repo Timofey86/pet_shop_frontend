@@ -57,6 +57,10 @@
   text-decoration: none;
 }
 
+.continueLink:active {
+  background: #282828;
+}
+
 .content {
   display: grid;
   grid-template-columns: 1fr 548px;

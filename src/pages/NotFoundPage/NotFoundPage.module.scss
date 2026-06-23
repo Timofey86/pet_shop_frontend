@@ -47,6 +47,10 @@
   &:hover {
     background: #0b44d9;
   }
+
+  &:active {
+    background: #282828;
+  }
 }
 
 @media (max-width: 1020px) {
