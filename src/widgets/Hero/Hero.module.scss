@@ -43,6 +43,10 @@
   text-decoration: none;
 }
 
+.button:active {
+  background: #282828;
+}
+
 @media (max-width: 1020px) {
   .Hero {
     height: 480px;

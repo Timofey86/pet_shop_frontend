@@ -69,6 +69,11 @@
     font-weight: 600;
     cursor: pointer;
   }
+
+  button:active {
+    background: #282828;
+    color: #ffffff;
+  }
 }
 
 .error {

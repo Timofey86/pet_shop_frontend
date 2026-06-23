@@ -110,6 +110,17 @@
   cursor: pointer;
 }
 
+.addButton:active {
+  background: #282828;
+  color: #ffffff;
+}
+
+.added {
+  background: #ffffff;
+  color: #282828;
+  border: 1px solid #282828;
+}
+
 .description {
   h2 {
     margin-bottom: 16px;
