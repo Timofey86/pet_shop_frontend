@@ -1,9 +1,9 @@
 import cls from './ProductCard.module.scss'
 import {Link} from "react-router-dom";
 import {getRouteProduct} from "../../../../shared/config/router/routes.js";
-import {API_URL} from "../../../../shared/config/api.js";
 import {useDispatch} from "react-redux";
 import {addProductToCart} from "../../../cart/model/slice/cartSlice.js";
+import {getProductImage} from "../../../../shared/utils/imageHelper.js";
 
 const ProductCard = ({product}) => {
     const dispatch = useDispatch();
@@ -23,7 +23,7 @@ const ProductCard = ({product}) => {
             className={cls.ProductCard}
         >
             <div className={cls.ImageBox}>
-                <img src={`${API_URL}${product.image}`} alt={product.title}/>
+                <img src={getProductImage(product)} alt={product.title}/>
                 {hasDiscount && (
                     <span className={cls.discount}>-{discount}%</span>
                 )}

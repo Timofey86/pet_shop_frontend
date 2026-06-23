@@ -1,8 +1,8 @@
 import cls from './ProductDetails.module.scss'
-import {API_URL} from "../../../../shared/config/api.js";
 import {useDispatch} from "react-redux";
 import {useState} from "react";
 import {addProductToCart} from "../../../cart/model/slice/cartSlice.js";
+import {getProductImage} from "../../../../shared/utils/imageHelper.js";
 
 const ProductDetails = ({ product }) => {
     const dispatch = useDispatch();
@@ -34,7 +34,7 @@ const ProductDetails = ({ product }) => {
 
             <div className={cls.imageBox}>
                 <img
-                    src={`${API_URL}${product.image}`}
+                    src={getProductImage(product)}
                     alt={product.title}
                 />
             </div>
