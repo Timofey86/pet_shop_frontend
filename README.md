@@ -118,13 +118,14 @@ npm run preview
 ## What I Practiced
 
 * Building a multi-page React application
-* Working with client-side routing
-* Managing global state with Redux Toolkit
-* Handling asynchronous requests with createAsyncThunk
-* Working with Axios API layer
-* Creating reusable entities, features, widgets, and shared UI components
-* Building validated forms with React Hook Form
-* Implementing cart logic
-* Creating responsive layouts with CSS Modules
-* Structuring a project using Feature-Sliced Design
+* Client-side routing with React Router
+* Global state management with Redux Toolkit
+* Asynchronous data fetching using createAsyncThunk
+* API integration with Axios
+* Form handling and validation with React Hook Form
+* Shopping cart implementation with Redux
+* Product filtering, sorting, and search functionality
+* Debounced search using a custom useDebounce hook
+* Creating reusable components following Feature-Sliced Design
+* Responsive layout development with CSS Modules
 
