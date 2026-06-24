@@ -1,8 +1,8 @@
 import cls from './CartItem.module.scss'
 import {useDispatch} from "react-redux";
-import {API_URL} from "../../../../shared/config/api.js";
 import {decreaseCartItem, increaseCartItem, removeCartItem} from "../../model/slice/cartSlice.js";
 import removeImg from '../../../../shared/assets/remove.svg'
+import {getProductImage} from "../../../../shared/utils/imageHelper.js";
 
 const CartItem = ({ item }) => {
     const dispatch = useDispatch();
@@ -11,7 +11,7 @@ const CartItem = ({ item }) => {
   return (
     <div className={cls.CartItem}>
         <img
-            src={`${API_URL}${item.image}`}
+            src={getProductImage(item)}
             alt={item.title}
             className={cls.image}
         />
