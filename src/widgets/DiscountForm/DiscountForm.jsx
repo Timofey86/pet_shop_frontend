@@ -1,7 +1,7 @@
 import cls from './DiscountForm.module.scss'
 import petsImg from '../../shared/assets/discountImage.png'
 import {useForm} from "react-hook-form";
-import {sendSaleRequest} from "../../shared/api/saleApi.js";
+import {sendSaleRequest} from "../../entities/sale/api/saleApi.js";
 import {useState} from "react";
 import Modal from "../../shared/ui/Modal/Modal.jsx";
 

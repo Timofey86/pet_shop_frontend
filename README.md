@@ -117,7 +117,7 @@ npm run preview
 
 ## What I Practiced
 
-* Building a multi-page React application
+* Building a React Single Page Application (SPA)
 * Client-side routing with React Router
 * Global state management with Redux Toolkit
 * Asynchronous data fetching using createAsyncThunk

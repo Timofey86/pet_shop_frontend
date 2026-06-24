@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {sendOrder} from "../../../../shared/api/orderApi.js";
+import {sendOrder} from "../../api/orderApi.js";
 
 const initialState = {
     status: 'default',
