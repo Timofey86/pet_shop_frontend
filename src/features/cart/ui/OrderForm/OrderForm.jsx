@@ -58,8 +58,8 @@ const OrderForm = ({ items, onSuccess }) => {
             {...register('phone', {
                 required: 'Phone number is required',
                 pattern: {
-                    value: /^[+0-9\s()-]{7,20}$/,
-                    message: 'Enter a valid phone number'
+                    value: /^\+49(15|16|17)\d{8,10}$/,
+                    message: 'Enter a valid German mobile number',
                 }
             })}
             />

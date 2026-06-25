@@ -1,15 +1,18 @@
 import cls from './ProductCard.module.scss'
 import {Link} from "react-router-dom";
 import {getRouteProduct} from "../../../../shared/config/router/routes.js";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {addProductToCart} from "../../../cart/model/slice/cartSlice.js";
 import {getProductImage} from "../../../../shared/utils/imageHelper.js";
+import {cartItemsSelector} from "../../../cart/model/selectors/cartSelectors.js";
 
 const ProductCard = ({product}) => {
     const dispatch = useDispatch();
     const discount = Math.round((1 - product.discont_price / product.price) * 100)
     const hasDiscount = product.discont_price !== null;
     const currentPrice = hasDiscount ? product.discont_price : product.price;
+    const cartItems = useSelector(cartItemsSelector);
+    const isAdded = cartItems.some((item) => item.id === product.id);
 
     const onAddToCart = (event) => {
         event.preventDefault();
@@ -30,10 +33,10 @@ const ProductCard = ({product}) => {
 
                 <button
                     type="button"
-                    className={cls.addButton}
+                    className={`${cls.addButton} ${isAdded ? cls.added : ''}`}
                     onClick={onAddToCart}
                 >
-                    Add to cart
+                    {isAdded ? 'Added' :  'Add to cart'}
                 </button>
             </div>
 
