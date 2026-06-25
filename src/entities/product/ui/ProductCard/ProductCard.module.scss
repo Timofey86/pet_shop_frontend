@@ -105,6 +105,13 @@
   border: 1px solid #282828;
 }
 
+.addButton:disabled {
+  background: #ffffff;
+  color: #282828;
+  border: 1px solid #282828;
+  cursor: default;
+}
+
 @media (max-width: 1020px) {
   .ImageBox {
     height: 240px;

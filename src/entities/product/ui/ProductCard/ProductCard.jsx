@@ -35,6 +35,7 @@ const ProductCard = ({product}) => {
                     type="button"
                     className={`${cls.addButton} ${isAdded ? cls.added : ''}`}
                     onClick={onAddToCart}
+                    disabled={isAdded}
                 >
                     {isAdded ? 'Added' :  'Add to cart'}
                 </button>

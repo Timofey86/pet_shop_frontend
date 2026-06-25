@@ -1,14 +1,11 @@
 import cls from './ProductDetails.module.scss'
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {useState} from "react";
 import {addProductToCart} from "../../../cart/model/slice/cartSlice.js";
 import {getProductImage} from "../../../../shared/utils/imageHelper.js";
-import {cartItemsSelector} from "../../../cart/model/selectors/cartSelectors.js";
 
 const ProductDetails = ({ product }) => {
     const dispatch = useDispatch();
-    const cartItems = useSelector(cartItemsSelector);
-    const isAdded = cartItems.some((item) => item.id === product.id);
 
     const [count, setCount] = useState(1);
     const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
@@ -63,10 +60,10 @@ const ProductDetails = ({ product }) => {
 
                     <button
                         type='button'
-                        className={`${cls.addButton} ${isAdded ? cls.added : ''}`}
+                        className={cls.addButton}
                         onClick={onAddToCart}
                     >
-                        {isAdded ? 'Added' :  'Add to cart'}
+                        Add to cart
                     </button>
                 </div>
                 <div className={cls.description}>
